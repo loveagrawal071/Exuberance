@@ -1,0 +1,437 @@
+                                                                                                <!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Home</title>
+<link rel="stylesheet" type="text/css" media="all" href="style.css" />
+<link rel="stylesheet" type="text/css" href="style/css/media-queries.css" />
+<link rel="stylesheet" type="text/css" href="style/js/player/mediaelementplayer.css" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,300,700,700italic|Open+Sans+Condensed:300,700' rel="stylesheet" type='text/css'>
+	<link rel="stylesheet" type="text/css" href="engine1/style.css" />
+	<script type="text/javascript" src="engine1/jquery.js"></script>
+
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="style/css/ie8.css" media="all" />
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="style/css/ie9.css" media="all" />
+
+<script type="text/javascript" src="style/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="style/js/ddsmoothmenu.js"></script>
+<script type="text/javascript" src="style/js/retina.js"></script>
+<script type="text/javascript" src="style/js/selectnav.js"></script>
+<script type="text/javascript" src="style/js/jquery.masonry.min.js"></script>
+<script type="text/javascript" src="style/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="style/js/jquery.backstretch.min.js"></script>
+<script type="text/javascript" src="style/js/mediaelement.min.js"></script>
+<script type="text/javascript" src="style/js/mediaelementplayer.min.js"></script>
+<script type="text/javascript" src="style/js/jquery.dcflickr.1.0.js"></script>
+<script type="text/javascript" src="style/js/twitter.min.js"></script>
+<script type="text/javascript">
+	$.backstretch("style/images/bg/1.jpg");
+</script>
+<style type="text/css">
+.numbers {
+    text-align: right; 
+    font-family: Arial; 
+    font-size: 28px; 
+    font-weight: bold;    /* options are normal, bold, bolder, lighter */
+    font-style: italic;   /* options are normal or italic */
+    color: #7FFF00 ;       /* change color using the hexadecimal color codes for HTML */
+}
+.title {    /* the styles below will affect the title next to the numbers, i.e., “Days”, “Hours”, etc. */
+    margin: 12px 0px 0px 0px;
+    padding: 0px 8px 0px 3px;
+    text-align: left;
+    font-family: Arial; 
+    font-size: 20px; 
+    font-weight: bold;    /* options are normal, bold, bolder, lighter */
+    font-style: italic;   /* options are normal or italic */
+    color: #ffffff;       /* change color using the hexadecimal color codes for HTML */
+}
+#table {
+    width: auto;
+    margin: 0px auto;
+    position: relative;     /* leave as "relative" to keep timer centered on your page, or change to "absolute" then change the values of the "top" and "left" properties to position the timer */
+    top: 0px;            /* change to position the timer */
+    left: 0px;            /* change to position the timer; delete this property and it's value to keep timer centered on page */
+}
+</style>
+
+<script type="text/javascript">
+
+/*
+Count down until any date script-
+By JavaScript Kit (www.javascriptkit.com)
+Over 200+ free scripts here!
+Modified by Robert M. Kuhnhenn, D.O. 
+on 5/30/2006 to count down to a specific date AND time,
+on 10/20/2007 to a new format, and 1/10/2010 to include
+time zone offset.
+*/
+
+/*  Change the items below to create your countdown target date and announcement once the target date and time are reached.  */
+var current="Winter is here!";    //-->enter what you want the script to display when the target date and time are reached, limit to 20 characters
+var year=2014;    //-->Enter the count down target date YEAR
+var month=11;      //-->Enter the count down target date MONTH
+var day=7;       //-->Enter the count down target date DAY
+var hour=21;      //-->Enter the count down target date HOUR (24 hour clock)
+var minute=0;    //-->Enter the count down target date MINUTE
+var tz=-5.5;        //-->Offset for your timezone in hours from UTC (see http://wwp.greenwichmeantime.com/index.htm to find the timezone offset for your location)
+
+//-->    DO NOT CHANGE THE CODE BELOW!    <--
+var montharray=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+
+function countdown(yr,m,d,hr,min){
+theyear=yr;themonth=m;theday=d;thehour=hr;theminute=min;
+    var today=new Date();
+    var todayy=today.getYear();
+    if (todayy < 1000) {todayy+=1900;}
+    var todaym=today.getMonth();
+    var todayd=today.getDate();
+    var todayh=today.getHours();
+    var todaymin=today.getMinutes();
+    var todaysec=today.getSeconds();
+    var todaystring1=montharray[todaym]+" "+todayd+", "+todayy+" "+todayh+":"+todaymin+":"+todaysec;
+    var todaystring=Date.parse(todaystring1)+(tz*1000*60*60);
+    var futurestring1=(montharray[m-1]+" "+d+", "+yr+" "+hr+":"+min);
+    var futurestring=Date.parse(futurestring1)-(today.getTimezoneOffset()*(1000*60));
+    var dd=futurestring-todaystring;
+    var dday=Math.floor(dd/(60*60*1000*24)*1);
+    var dhour=Math.floor((dd%(60*60*1000*24))/(60*60*1000)*1);
+    var dmin=Math.floor(((dd%(60*60*1000*24))%(60*60*1000))/(60*1000)*1);
+    var dsec=Math.floor((((dd%(60*60*1000*24))%(60*60*1000))%(60*1000))/1000*1);
+    if(dday<=0&&dhour<=0&&dmin<=0&&dsec<=0){
+        document.getElementById('count2').innerHTML=current;
+        document.getElementById('count2').style.display="block";
+        document.getElementById('count2').style.width="390px";
+        document.getElementById('dday').style.display="none";
+        document.getElementById('dhour').style.display="none";
+        document.getElementById('dmin').style.display="none";
+        document.getElementById('dsec').style.display="none";
+        document.getElementById('days').style.display="none";
+        document.getElementById('hours').style.display="none";
+        document.getElementById('minutes').style.display="none";
+        document.getElementById('seconds').style.display="none";
+        return;
+    }
+    else {
+        document.getElementById('count2').style.display="none";
+        document.getElementById('dday').innerHTML=dday;
+        document.getElementById('dhour').innerHTML=dhour;
+        document.getElementById('dmin').innerHTML=dmin;
+        document.getElementById('dsec').innerHTML=dsec;
+        setTimeout("countdown(theyear,themonth,theday,thehour,theminute)",1000);
+    }
+}
+
+</script>
+
+</head>
+<body onload="countdown(year,month,day,hour,minute);">
+<div class="scanlines"></div>
+
+<!-- Begin Header -->
+<div class="header-wrapper opacity">
+	<div class="header">
+		<!-- Begin Logo -->
+		<div class="logo">
+		    <a href="index.html">
+				<img src="style/images/logo.png" alt="" />
+			</a>
+	    </div>
+		<!-- End Logo -->
+		<!-- Begin Menu -->
+		<div id="menu-wrapper">
+			<div id="menu" class="menu">
+				<ul id="tiny">
+					<li class="active"><a href="index.html">Home</a>
+					</li>
+					<li><a href="#">Events</a>
+						<ul>
+							<li><a href="singing.html">Singing</a></li>
+							<li><a href="dancing.html">Dancing</a></li>
+							<li><a href="drama.html">Drama</a></li>
+							<li><a href="poetry.html">Poetry</a></li>
+							<li><a href="pi.html">Personal Interview </a></li>
+							<li><a href="rampwalk.html">Rampwalk</a></li>
+							
+						</ul>
+					</li>
+					<li><a href="typography.html">Sponsors</a>
+					</li>
+					
+					<li><a href="gallery.html">Gallery</a></li>
+					<li><a href="hall.html">Hall Of Fame</a></li>
+					<li><a href="n.html">News Feed</a></li>
+					<li><a href="contact.html">Contact Us</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<!-- End Menu -->
+	</div>
+</div>
+<!-- End Header -->
+
+<!-- Begin Wrapper -->
+<div class="wrapper"><!-- Begin Intro -->
+<div class="intro">Exuberance is overflowing with eager, unrestrained excitement or enthusiasm.... </div>
+<ul class="social">
+<li><a class="rss" href="http://www.jkinstitute.ac.in/"></a></li><li><a class="facebook" href="https://www.facebook.com/exuberance13"></a></li><li><a class="dribbble" href="http://en.wikipedia.org/wiki/J.K_Institute_of_Applied_Physics_and_Technology"></a></li></ul><!-- End Intro --> 
+
+<!-- Begin Blog Grid -->
+<div class="blog-wrap">
+	<!-- Begin Blog -->
+	<div class="blog-grid">
+		<!-- Begin Image Format -->
+		<div class="post format-image box"> 
+			<div>
+				<div id="wowslider-container1">
+	<div class="ws_images"><ul>
+<li><img src="data1/images/4.jpg" alt="" title="" id="wows1_0"/></li>
+<li><img src="data1/images/5.jpg" alt="" title="" id="wows1_1"/></li>
+<li><img src="data1/images/6.jpg" alt="" title="" id="wows1_2"/></li>
+<li><img src="data1/images/33.jpg" alt="" title="" id="wows1_3"/></li>
+<li><img src="data1/images/34.jpg" alt="" title="" id="wows1_4"/></li>
+<li><img src="data1/images/51.jpg" alt="" title="" id="wows1_5"/></li>
+<li><img src="data1/images/71.jpg" alt="" title="" id="wows1_6"/></li>
+<li><img src="data1/images/72.jpg" alt="" title="" id="wows1_7"/></li>
+<li><img src="data1/images/80.jpg" alt="" title="" id="wows1_8"/></li>
+<li><img src="data1/images/89.jpg" alt="" title="" id="wows1_9"/></li>
+<li><img src="data1/images/95.jpg" alt="" title="" id="wows1_10"/></li>
+<li><img src="data1/images/104.jpg" alt="" title="" id="wows1_11"/></li>
+<li><img src="data1/images/105.jpg" alt="" title="" id="wows1_12"/></li>
+<li><a href="http://wowslider.com/vf"><img src="data1/images/48.jpg" alt="full screen slider" title="" id="wows1_13"/></a></li>
+<li><img src="data1/images/35.jpg" alt="" title="" id="wows1_14"/></li>
+</ul></div>
+<span class="wsl"><a href="http://wowslider.com/vu">carousel slider</a> by WOWSlider.com v6.4</span>
+	<div class="ws_shadow"></div>
+	</div>	
+	<script type="text/javascript" src="engine1/wowslider.js"></script>
+	<script type="text/javascript" src="engine1/script.js"></script>
+	
+					
+				
+			</div>
+			<h2 class="title">Exuberance-2K14</h2>
+			<p style="text-align:justify;">Exuberance-2K14 is a welcome party for the first year students of B. 
+
+Tech which is organized by their immediate seniors.The evening mark's 
+
+induction and integration of the new entrants in the J.K family. This 
+
+year too, the Freshers’ Party of B. Tech students will be held, to 
+
+synergize their efforts towards organizing and performing skills. Several 
+
+group dances, skits, poetry and singing performances really make the 
+
+new entrants enjoy to the fullest.The fresher's  participate with full zeal 
+
+& enthusiasm and display their cultural skills.On this cultural night full 
+
+with fun and frolic panel of judges adjudge Mr. and Miss Fresher. In this 
+
+get together party all the students get acquainted with each other and 
+
+imbibe the rich tradition and culture of J.k Institute as well as contribute 
+
+towards its achievement of excellence in all sphere of activities.</p>
+			
+		</div>
+		<!-- End Image Format -->
+
+ 	
+		<!-- Begin Quote Format -->
+		<div class="post format-quote box"> 
+		<h1 style="padding-left:80px; font:Arial; font-size:40px;">Exuberance-2K14 </h1><h2 style="padding-left:0px; font:Arial; text-align:center;"><i>begin's In...</i></h2>
+		<table id="table" cellspacing="0" cellpadding="0" border="0">
+    <tr>
+        <td colspan="8"><div class="numbers" id="count2" style="text-align: center;"></div></td>
+    </tr>
+    <tr>
+        <td align="right"><div class="numbers" id="dday"></div></td>        
+        <td align="left"><div class="title" id="days">Days</div></td>
+        <td align="right"><div class="numbers" id="dhour"></div></td>
+        <td align="left"><div class="title" id="hours">Hours</div></td>
+        <td align="right"><div class="numbers" id="dmin"></div></td>
+        <td align="left"><div class="title" id="minutes">Minutes</div></td>
+        <td align="right"><div class="numbers" id="dsec"></div></td>
+        <td align="left"><div class="title" id="seconds">Seconds</div></td>
+    </tr>
+</table>
+
+		  </div>
+		<!-- End Quote Format --> 	
+
+
+		
+
+		<div class="post format-standard box"> 
+		<h2>Word from our sponsors</h2>
+		<table>
+		<tr><h4><u><a href="https://www.facebook.com/spectechalld">Spectrum Technologies</a></u></h4></tr>
+		<tr>
+		
+		
+		<td>At <b><u>Spectrum Technologies</b></u>  one gets  complete JAVA training by Mr. Rehan Ahmad, an expert in this field holding experience of more than 15 years in IT training . 
+
+We are also delivering trainings on other technologies like C, C++, PHP and many others by qualified professionals. Our Mission is that our students build their  careers and find their natural abilities among the many diverse aspects of IT domain.
+		<br>
+		<br>Address:<b>8/6, 2nd Floor, Tashkand Road, <br>Near Patrika Crossing,<br> Civil Lines, Allahabad, India 211001</b>
+		</td>
+		</tr>
+		
+		</table>
+			<br>
+	<table>
+		<tr><h4><u>Reservseat Restaurant</u></h4></tr>
+		<tr>
+	
+		<td>If you are a lover of Pizzas and Manchurians and don't mind eating at a smallish eatery as long as the food is good,<b><u> Reservseat </b></u>is a place you will like. One of the popular haunts of Allahabad's youth, the place is incredibly good on both the pocket and the palette. What this simply means is that you get to hog to your heart's content, without having to worry about a humongous bill!<br> 
+ <br>Address:<b>12/22/1, Master Zaharool Hasan Road,<br> Mufordganj, Katra, Allahabad</b>
+		</td>
+		</tr>
+		
+		</table>
+		</div>
+							
+
+			
+ 		<!-- Begin Standard Format -->
+ 		<div class="post format-standard box"> 
+
+			<h2 class="title">Exuberance 2K13</h2>
+			<p style="text-align:justify;">Another successful event organised by J.K Institute Batch 2012.The event marked a prodigious evening which will remain in our hearts for ever..........</p>			
+	         <ul>
+					<li><b>Mr.Fresher</b>:Raj Krishna Srivastava</li>
+					<li><b>Miss Fresher</b>:Chitrangada Singh</li>
+					<li><b>Mr Function</b>:Ambarish Singh</li>
+			        <li><b>Miss Function</b>:Bhumika Varshney</li>
+					<li><b>Mr.Intellect</b>:Keshav Bihani</li>
+					<li><b>Best Performer</b>:Bhawani Tripathi</li>
+					<li><b>Best Actor</b>:Navodit Singh</li>
+					<li><b>Best Singer</b>:Soumya Verma & Md.Shadaan Siddiqui</li>
+					<li><b>J.K's Got Talent</b>:Anupriya Seth</li>
+					 <li><b>Best Junior</b>:Nida Belal</li>
+					 <li><b>Best Rampwalk</b>:Ayesha Singh and Sunil Mahala</li>
+					 <li><b>Best Dancer</b>:Aleti Bhanu and G.Parmeshwar Sampath</li>
+				</ul>
+		</div>
+		<!-- End Standard Format --> 					
+
+
+		<!-- Begin Link Format -->
+		
+
+			<div class="post format-quote box"> 
+		     <h2 class="title">About the Theme</h2>
+			We have come to believe that the whole world is an <b>Enigma</b>.A harmless enigma that is made terrible by our own mad attempts to interpret it as though it had an underlying truth....
+			<br><br><br></div>
+		<!-- End Link Format --> 					
+
+
+		<!-- Begin Chat Format -->
+		<div class="post format-chat box"> 
+			<h2 class="title">Venue</h2>
+			<ul>
+			    <li>S.N Ghosh Auditorium,</li>
+				
+				<li>J.K Institute Of Applied Physics and Technology </li>
+				<li>Science Faculty,University of Allahabad,<br>Allahabad-211002
+                         <br> Uttar-Pradesh,<br>India</li>
+				
+			</ul>
+		
+			
+			
+		</div>
+		<!-- End Chat Format -->
+ 	
+ 	</div>
+	<!-- End Blog -->
+</div>
+<!-- End Blog Grid -->
+
+
+</div>
+<!-- End Wrapper -->
+
+<!-- Begin Footer -->
+<div class="footer-wrapper">
+<div id="footer" class="four">
+		<div id="first" class="widget-area">
+			
+			<div class="widget widget_archive">
+				<h3 class="widget-title">Title  Sponsors</h3>
+				<ul>
+					<li><a href="https://www.facebook.com/spectechalld">Spectrum Technologies</a></li>
+					<li><a href="https://www.zomato.com/allahabad/reserveseats-katra">Reservseat Restaurant<a></li>
+					   
+					
+				</ul>
+			</div>	
+		</div><!-- #first .widget-area -->
+	
+		<div id="second" class="widget-area">
+		<div id="example-widget-3" class="widget example">
+			<h3 class="widget-title">Event Sponsors</h3>
+			<ul>
+					<li><a href="#">HotStuff</a></li>
+					
+					<li><a href="#">Pioneer</a></li>
+					
+			        <li><a href="#">Tandoor</a></li>
+			        <li><a href="#">NIIT</a></li>
+			   
+					
+				</ul>
+			
+		</div>
+		</div>
+					
+					
+			
+		
+	
+		<div id="third" class="widget-area">
+		<div id="example-widget-3" class="widget example">
+			<h3 class="widget-title">Associate Sponsors</h3>
+			<ul>
+					<li><a href="#">HotStuff</a></li>
+					<li><a href="#">Friends Forever</a></li>
+					
+				
+			        <li><a href="#">Tandoor</a></li>
+			 
+			   
+					
+				</ul>
+			
+		</div>
+		</div><!-- #third .widget-area -->
+		
+		
+	</div>
+</div>
+
+<!-- End Footer --> 		    </div>
+				</li>
+			</ul>
+			
+		</div>
+		</div><!-- #third .widget-area -->
+		
+		
+	</div>
+</div>
+
+<!-- End Footer --> 
+<script type="text/javascript" src="style/js/scripts.js"></script>
+</body>
+</html>
+                            
+                            
+                            
